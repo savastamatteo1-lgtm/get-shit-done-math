@@ -1,7 +1,7 @@
 {
-  "version": "0.1.0",
-  "domain": "",
-  "notation_preset": "",
-  "created": "",
-  "plugin_version": "0.1.0"
+  "version": "0.2.0",
+  "current_problem": "",
+  "problems": [],
+  "archived": [],
+  "plugin_version": "0.2.0"
 }
