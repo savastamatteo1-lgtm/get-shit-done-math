@@ -6,6 +6,7 @@
     "get-shit-done-math": "bin/install.js"
   },
   "files": [
+    ".claude-plugin",
     "bin",
     "commands",
     "get-shit-done",

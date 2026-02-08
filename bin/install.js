@@ -149,7 +149,7 @@ console.log(banner);
 
 // Show help if requested
 if (hasHelp) {
-  console.log(`  ${yellow}Usage:${reset} npx get-shit-done-cc [options]\n\n  ${yellow}Options:${reset}\n    ${cyan}-g, --global${reset}              Install globally (to config directory)\n    ${cyan}-l, --local${reset}               Install locally (to current directory)\n    ${cyan}--claude${reset}                  Install for Claude Code only\n    ${cyan}--opencode${reset}                Install for OpenCode only\n    ${cyan}--gemini${reset}                  Install for Gemini only\n    ${cyan}--all${reset}                     Install for all runtimes\n    ${cyan}-u, --uninstall${reset}           Uninstall GSD (remove all GSD files)\n    ${cyan}-c, --config-dir <path>${reset}   Specify custom config directory\n    ${cyan}-h, --help${reset}                Show this help message\n    ${cyan}--force-statusline${reset}        Replace existing statusline config\n\n  ${yellow}Examples:${reset}\n    ${dim}# Interactive install (prompts for runtime and location)${reset}\n    npx get-shit-done-cc\n\n    ${dim}# Install for Claude Code globally${reset}\n    npx get-shit-done-cc --claude --global\n\n    ${dim}# Install for Gemini globally${reset}\n    npx get-shit-done-cc --gemini --global\n\n    ${dim}# Install for all runtimes globally${reset}\n    npx get-shit-done-cc --all --global\n\n    ${dim}# Install to custom config directory${reset}\n    npx get-shit-done-cc --claude --global --config-dir ~/.claude-bc\n\n    ${dim}# Install to current project only${reset}\n    npx get-shit-done-cc --claude --local\n\n    ${dim}# Uninstall GSD from Claude Code globally${reset}\n    npx get-shit-done-cc --claude --global --uninstall\n\n  ${yellow}Notes:${reset}\n    The --config-dir option is useful when you have multiple configurations.\n    It takes priority over CLAUDE_CONFIG_DIR / GEMINI_CONFIG_DIR environment variables.\n`);
+  console.log(`  ${yellow}Usage:${reset} npx get-shit-done-math [options]\n\n  ${yellow}Options:${reset}\n    ${cyan}-g, --global${reset}              Install globally (to config directory)\n    ${cyan}-l, --local${reset}               Install locally (to current directory)\n    ${cyan}--claude${reset}                  Install for Claude Code only\n    ${cyan}--opencode${reset}                Install for OpenCode only\n    ${cyan}--gemini${reset}                  Install for Gemini only\n    ${cyan}--all${reset}                     Install for all runtimes\n    ${cyan}-u, --uninstall${reset}           Uninstall GSD (remove all GSD files)\n    ${cyan}-c, --config-dir <path>${reset}   Specify custom config directory\n    ${cyan}-h, --help${reset}                Show this help message\n    ${cyan}--force-statusline${reset}        Replace existing statusline config\n\n  ${yellow}Examples:${reset}\n    ${dim}# Interactive install (prompts for runtime and location)${reset}\n    npx get-shit-done-math\n\n    ${dim}# Install for Claude Code globally${reset}\n    npx get-shit-done-math --claude --global\n\n    ${dim}# Install for Gemini globally${reset}\n    npx get-shit-done-math --gemini --global\n\n    ${dim}# Install for all runtimes globally${reset}\n    npx get-shit-done-math --all --global\n\n    ${dim}# Install to custom config directory${reset}\n    npx get-shit-done-math --claude --global --config-dir ~/.claude-bc\n\n    ${dim}# Install to current project only${reset}\n    npx get-shit-done-math --claude --local\n\n    ${dim}# Uninstall GSD from Claude Code globally${reset}\n    npx get-shit-done-math --claude --global --uninstall\n\n  ${yellow}Notes:${reset}\n    The --config-dir option is useful when you have multiple configurations.\n    It takes priority over CLAUDE_CONFIG_DIR / GEMINI_CONFIG_DIR environment variables.\n`);
   process.exit(0);
 }
 
@@ -801,25 +801,31 @@ function uninstall(isGlobal, runtime = 'claude') {
 
   // 1. Remove GSD commands directory
   if (isOpencode) {
-    // OpenCode: remove command/gsd-*.md files
+    // OpenCode: remove command/gsd-*.md and command/math-*.md files
     const commandDir = path.join(targetDir, 'command');
     if (fs.existsSync(commandDir)) {
       const files = fs.readdirSync(commandDir);
       for (const file of files) {
-        if (file.startsWith('gsd-') && file.endsWith('.md')) {
+        if ((file.startsWith('gsd-') || file.startsWith('math-')) && file.endsWith('.md')) {
           fs.unlinkSync(path.join(commandDir, file));
           removedCount++;
         }
       }
-      console.log(`  ${green}✓${reset} Removed GSD commands from command/`);
+      console.log(`  ${green}✓${reset} Removed GSD and math commands from command/`);
     }
   } else {
-    // Claude Code & Gemini: remove commands/gsd/ directory
+    // Claude Code & Gemini: remove commands/gsd/ and commands/math/ directories
     const gsdCommandsDir = path.join(targetDir, 'commands', 'gsd');
     if (fs.existsSync(gsdCommandsDir)) {
       fs.rmSync(gsdCommandsDir, { recursive: true });
       removedCount++;
       console.log(`  ${green}✓${reset} Removed commands/gsd/`);
+    }
+    const mathCommandsDir = path.join(targetDir, 'commands', 'math');
+    if (fs.existsSync(mathCommandsDir)) {
+      fs.rmSync(mathCommandsDir, { recursive: true });
+      removedCount++;
+      console.log(`  ${green}✓${reset} Removed commands/math/`);
     }
   }
 
@@ -831,20 +837,29 @@ function uninstall(isGlobal, runtime = 'claude') {
     console.log(`  ${green}✓${reset} Removed get-shit-done/`);
   }
 
-  // 3. Remove GSD agents (gsd-*.md files only)
+  // 2b. Remove get-shit-done-math directory (templates, presets, protocols)
+  const mathDataDir = path.join(targetDir, 'get-shit-done-math');
+  if (fs.existsSync(mathDataDir)) {
+    fs.rmSync(mathDataDir, { recursive: true });
+    removedCount++;
+    console.log(`  ${green}✓${reset} Removed get-shit-done-math/`);
+  }
+
+  // 3. Remove GSD agents (gsd-*.md) and math agents
   const agentsDir = path.join(targetDir, 'agents');
   if (fs.existsSync(agentsDir)) {
     const files = fs.readdirSync(agentsDir);
+    const mathAgents = ['math-intake.md', 'literature-search.md', 'session-manager.md'];
     let agentCount = 0;
     for (const file of files) {
-      if (file.startsWith('gsd-') && file.endsWith('.md')) {
+      if ((file.startsWith('gsd-') && file.endsWith('.md')) || mathAgents.includes(file)) {
         fs.unlinkSync(path.join(agentsDir, file));
         agentCount++;
       }
     }
     if (agentCount > 0) {
       removedCount++;
-      console.log(`  ${green}✓${reset} Removed ${agentCount} GSD agents`);
+      console.log(`  ${green}✓${reset} Removed ${agentCount} agents`);
     }
   }
 
@@ -1131,6 +1146,125 @@ function install(isGlobal, runtime = 'claude') {
     }
   }
 
+  // ── Math commands ──────────────────────────────────────────────────
+  // Root-level commands/*.md files are math-specific skills (init, problem, etc.)
+  // They need name: math:<basename> injected into frontmatter so Claude Code
+  // registers them as /math:init, /math:problem, etc.
+  const mathCmdSrc = path.join(src, 'commands');
+  const mathSupportPrefix = `${pathPrefix}get-shit-done-math/`;
+
+  if (isOpencode) {
+    // OpenCode: flatten to command/math-*.md
+    const commandDir = path.join(targetDir, 'command');
+    fs.mkdirSync(commandDir, { recursive: true });
+
+    // Remove old math-*.md files before copying new ones
+    for (const file of fs.readdirSync(commandDir)) {
+      if (file.startsWith('math-') && file.endsWith('.md')) {
+        fs.unlinkSync(path.join(commandDir, file));
+      }
+    }
+
+    const mathEntries = fs.readdirSync(mathCmdSrc, { withFileTypes: true });
+    let mathCount = 0;
+    for (const entry of mathEntries) {
+      if (!entry.isFile() || !entry.name.endsWith('.md')) continue;
+      const baseName = entry.name.replace('.md', '');
+      const destPath = path.join(commandDir, `math-${baseName}.md`);
+
+      let content = fs.readFileSync(path.join(mathCmdSrc, entry.name), 'utf8');
+      // Replace path references for support files
+      content = content.replace(/@?templates\//g, `@${mathSupportPrefix}templates/`);
+      content = content.replace(/@?presets\//g, `@${mathSupportPrefix}presets/`);
+      content = content.replace(/@?protocols\//g, `@${mathSupportPrefix}protocols/`);
+      // Standard path and attribution processing
+      content = content.replace(/~\/\.claude\//g, pathPrefix);
+      content = content.replace(/~\/\.opencode\//g, pathPrefix);
+      content = processAttribution(content, getCommitAttribution(runtime));
+      content = convertClaudeToOpencodeFrontmatter(content);
+
+      fs.writeFileSync(destPath, content);
+      mathCount++;
+    }
+    if (mathCount > 0) {
+      console.log(`  ${green}✓${reset} Installed ${mathCount} math commands to command/`);
+    }
+  } else {
+    // Claude Code & Gemini: nested structure in commands/math/
+    const mathDest = path.join(targetDir, 'commands', 'math');
+
+    // Clean install: remove existing math commands directory
+    if (fs.existsSync(mathDest)) {
+      fs.rmSync(mathDest, { recursive: true });
+    }
+    fs.mkdirSync(mathDest, { recursive: true });
+
+    const mathEntries = fs.readdirSync(mathCmdSrc, { withFileTypes: true });
+    let mathCount = 0;
+    for (const entry of mathEntries) {
+      if (!entry.isFile() || !entry.name.endsWith('.md')) continue;
+      const baseName = entry.name.replace('.md', '');
+      const destPath = path.join(mathDest, entry.name);
+
+      let content = fs.readFileSync(path.join(mathCmdSrc, entry.name), 'utf8');
+
+      // Inject name: math:<basename> into YAML frontmatter
+      if (content.startsWith('---')) {
+        content = content.replace(/^---\n/, `---\nname: math:${baseName}\n`);
+      }
+
+      // Replace path references for support files
+      content = content.replace(/@?templates\//g, `@${mathSupportPrefix}templates/`);
+      content = content.replace(/@?presets\//g, `@${mathSupportPrefix}presets/`);
+      content = content.replace(/@?protocols\//g, `@${mathSupportPrefix}protocols/`);
+      // Standard path and attribution processing
+      content = content.replace(/~\/\.claude\//g, pathPrefix);
+      content = processAttribution(content, getCommitAttribution(runtime));
+
+      if (isGemini) {
+        content = stripSubTags(content);
+        const tomlContent = convertClaudeToGeminiToml(content);
+        const tomlPath = destPath.replace(/\.md$/, '.toml');
+        fs.writeFileSync(tomlPath, tomlContent);
+      } else {
+        fs.writeFileSync(destPath, content);
+      }
+      mathCount++;
+    }
+    if (mathCount > 0) {
+      console.log(`  ${green}✓${reset} Installed ${mathCount} math commands to commands/math/`);
+    } else {
+      failures.push('commands/math');
+    }
+  }
+
+  // ── Math support files (templates, presets, protocols) ────────────
+  const mathDataDest = path.join(targetDir, 'get-shit-done-math');
+  const mathDataDirs = ['templates', 'presets', 'protocols'];
+  for (const dirName of mathDataDirs) {
+    const dataSrc = path.join(src, dirName);
+    if (fs.existsSync(dataSrc)) {
+      const dataDest = path.join(mathDataDest, dirName);
+      // Clean install: remove existing before copying
+      if (fs.existsSync(dataDest)) {
+        fs.rmSync(dataDest, { recursive: true });
+      }
+      fs.mkdirSync(dataDest, { recursive: true });
+
+      const entries = fs.readdirSync(dataSrc, { withFileTypes: true });
+      for (const entry of entries) {
+        if (entry.isFile()) {
+          fs.copyFileSync(path.join(dataSrc, entry.name), path.join(dataDest, entry.name));
+        }
+      }
+      if (verifyInstalled(dataDest, `get-shit-done-math/${dirName}`)) {
+        console.log(`  ${green}✓${reset} Installed get-shit-done-math/${dirName}`);
+      } else {
+        failures.push(`get-shit-done-math/${dirName}`);
+      }
+    }
+  }
+
   // Copy get-shit-done skill with path replacement
   const skillSrc = path.join(src, 'get-shit-done');
   const skillDest = path.join(targetDir, 'get-shit-done');
@@ -1304,9 +1438,10 @@ function finishInstall(settingsPath, settings, statuslineCommand, shouldInstallS
   if (runtime === 'opencode') program = 'OpenCode';
   if (runtime === 'gemini') program = 'Gemini';
 
-  const command = isOpencode ? '/gsd-help' : '/gsd:help';
+  const gsdCommand = isOpencode ? '/gsd-help' : '/gsd:help';
+  const mathCommand = isOpencode ? '/math-help' : '/math:help';
   console.log(`
-  ${green}Done!${reset} Launch ${program} and run ${cyan}${command}${reset}.
+  ${green}Done!${reset} Launch ${program} and run ${cyan}${gsdCommand}${reset} or ${cyan}${mathCommand}${reset}.
 
   ${cyan}Join the community:${reset} https://discord.gg/5JJgD5svVS
 `);
