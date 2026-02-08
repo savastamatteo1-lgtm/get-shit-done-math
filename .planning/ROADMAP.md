@@ -13,7 +13,7 @@ This roadmap delivers an AI-powered mathematical research assistant as a Claude 
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation & Plugin Setup** - Document architecture, problem intake, notation registry, and plugin installation (completed 2026-02-08)
-- [ ] **Phase 2: Session State & Research Journal** - Persistent research sessions and approach tracking across time
+- [x] **Phase 2: Session State & Research Journal** - Persistent research sessions and approach tracking across time (completed 2026-02-08)
 - [ ] **Phase 3: Literature Search Agent** - arXiv and Semantic Scholar search with verified references and synthesis
 - [ ] **Phase 4: Proof Collaboration Agent** - Proof strategy, structured reasoning, confidence tiers, and gap analysis
 - [ ] **Phase 5: Computation Agent** - Sandboxed Python/SymPy/SageMath execution with reproducible artifacts
@@ -51,8 +51,8 @@ Plans:
 
 Plans:
 - [x] 02-01-PLAN.md -- Document schema foundation (config.json, DASHBOARD.md, JOURNAL.md templates, journal protocol)
-- [ ] 02-02-PLAN.md -- Multi-problem commands (/math:init update, Phase 1 path resolution, /math:switch, /math:archive)
-- [ ] 02-03-PLAN.md -- Session restoration (/math:resume command, session-management agent)
+- [x] 02-02-PLAN.md -- Multi-problem commands (/math:init update, Phase 1 path resolution, /math:switch, /math:archive)
+- [x] 02-03-PLAN.md -- Session restoration (/math:resume command, session-management agent)
 
 ### Phase 3: Literature Search Agent
 **Goal**: User can search for relevant mathematical literature and receive verified, synthesized results that connect to their problem
@@ -142,7 +142,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Plugin Setup | 3/3 | Complete | 2026-02-08 |
-| 2. Session State & Research Journal | 1/3 | In Progress | - |
+| 2. Session State & Research Journal | 3/3 | Complete | 2026-02-08 |
 | 3. Literature Search Agent | 0/TBD | Not started | - |
 | 4. Proof Collaboration Agent | 0/TBD | Not started | - |
 | 5. Computation Agent | 0/TBD | Not started | - |
