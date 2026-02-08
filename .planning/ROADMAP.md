@@ -50,7 +50,7 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 02-01-PLAN.md -- Document schema foundation (config.json, DASHBOARD.md, JOURNAL.md templates, journal protocol)
+- [x] 02-01-PLAN.md -- Document schema foundation (config.json, DASHBOARD.md, JOURNAL.md templates, journal protocol)
 - [ ] 02-02-PLAN.md -- Multi-problem commands (/math:init update, Phase 1 path resolution, /math:switch, /math:archive)
 - [ ] 02-03-PLAN.md -- Session restoration (/math:resume command, session-management agent)
 
@@ -142,7 +142,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Plugin Setup | 3/3 | Complete | 2026-02-08 |
-| 2. Session State & Research Journal | 0/3 | Planned | - |
+| 2. Session State & Research Journal | 1/3 | In Progress | - |
 | 3. Literature Search Agent | 0/TBD | Not started | - |
 | 4. Proof Collaboration Agent | 0/TBD | Not started | - |
 | 5. Computation Agent | 0/TBD | Not started | - |
