@@ -1,0 +1,12 @@
+{
+  "name": "math",
+  "version": "0.1.0",
+  "description": "AI-powered mathematical research assistant: literature search, proof collaboration, computation, and LaTeX output",
+  "author": {
+    "name": "get-shit-done-math"
+  },
+  "homepage": "https://github.com/glittercowboy/get-shit-done-math",
+  "repository": "https://github.com/glittercowboy/get-shit-done-math",
+  "license": "MIT",
+  "keywords": ["math", "research", "proof", "latex", "claude-code"]
+}
