@@ -16,8 +16,8 @@ Display the following command reference. Do not read any files -- this content i
 /math Command Reference
 ========================
 
-Active Commands (Phase 1)
--------------------------
+Active Commands (Phases 1-3)
+----------------------------
 
   /math:init       Initialize a math research project
                    Creates .math/ directory with notation presets,
@@ -31,6 +31,12 @@ Active Commands (Phase 1)
                    View, switch domain presets, add/edit symbols,
                    manage LaTeX packages, set presentation style.
 
+  /math:search     Search mathematical literature
+                   Search arXiv and Semantic Scholar for papers
+                   relevant to your problem, with verified references
+                   and synthesis.
+                   Usage: /math:search (broad), /math:search "query" (focused)
+
   /math:help       Show this command reference
 
   /math:status     View research state dashboard
@@ -41,7 +47,6 @@ Active Commands (Phase 1)
 Coming Soon
 -----------
 
-  /math:search       Search mathematical literature        (Phase 3)
   /math:prove        Collaborate on proofs                 (Phase 4)
   /math:compute      Run computations                     (Phase 5)
   /math:orchestrate  Full research pipeline                (Phase 6)

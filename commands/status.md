@@ -41,6 +41,7 @@ Read the following files from the resolved problem directory and extract frontma
 2. **`.math/problems/{current_problem}/PROBLEM.md`:** Extract `status`, `domain`, `type`, `output_type` (only if problem is defined)
 3. **`.math/problems/{current_problem}/NOTATION.md`:** Extract `domain`, `based_on_preset`, `modified`
 4. **`.math/config.json`:** Extract `current_problem`, `problems` array length, `archived` array length
+5. **`.math/problems/{current_problem}/LITERATURE.md`:** Extract `total_papers`, `confirmed_count`, `unconfirmed_count`, `last_search`, `sources_queried` (if file exists)
 
 ### Step 4: Display dashboard
 
@@ -59,10 +60,26 @@ Notation: {if notation_configured: "{domain} preset{if modified: ' (customized)'
 Active problems: {problems array length}  |  Archived: {archived array length}
 
 Problem Files:
-  .math/problems/{current_problem}/PROBLEM.md    {status}
-  .math/problems/{current_problem}/NOTATION.md    {domain or "empty"}
-  .math/problems/{current_problem}/STATE.md       {current_state}
-  .math/problems/{current_problem}/JOURNAL.md     {total_entries} entries
+  .math/problems/{current_problem}/PROBLEM.md      {status}
+  .math/problems/{current_problem}/NOTATION.md      {domain or "empty"}
+  .math/problems/{current_problem}/STATE.md         {current_state}
+  .math/problems/{current_problem}/JOURNAL.md       {total_entries} entries
+  .math/problems/{current_problem}/LITERATURE.md    {confirmed_count} confirmed, {unconfirmed_count} unconfirmed
+```
+
+If LITERATURE.md exists, also display:
+
+```
+Literature:
+  Papers found: {total_papers} ({confirmed_count} confirmed, {unconfirmed_count} unconfirmed)
+  Last search: {last_search}
+  Sources: {sources_queried joined with ", "}
+```
+
+If LITERATURE.md does not exist:
+
+```
+Literature: No searches yet. Run /math:search to find relevant papers.
 ```
 
 ### Step 5: Show contextual next steps
@@ -77,11 +94,10 @@ Next Steps:
   -> Run /math:switch to change active problem
 ```
 
-**If problem defined but early state:**
+**If problem defined:**
 ```
 Next Steps:
-  -> Problem captured. Literature search, proof collaboration,
-     and computation agents coming in future phases.
+  -> Run /math:search to find relevant mathematical literature
   -> Run /math:notation to review or customize notation
   -> Run /math:switch to work on a different problem
   -> Run /math:help to see all available and upcoming commands
@@ -108,3 +124,4 @@ If no history entries, skip this section.
 - `.math/problems/{current_problem}/PROBLEM.md` -- Problem definition and metadata
 - `.math/problems/{current_problem}/NOTATION.md` -- Notation profile and domain
 - `.math/problems/{current_problem}/JOURNAL.md` -- Research journal
+- `.math/problems/{current_problem}/LITERATURE.md` -- Literature search results and references
