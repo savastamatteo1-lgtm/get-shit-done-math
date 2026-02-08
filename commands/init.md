@@ -63,6 +63,7 @@ Wait for the user to choose before proceeding.
    - `.math/problems/{slug}/NOTATION.md` from `templates/NOTATION.md` (merged with domain preset, same as Phase 1 Step 3 item 3)
    - `.math/problems/{slug}/STATE.md` from `templates/STATE.md` (set `current_state: INITIALIZED`, `notation_configured: true/false`, add History entry)
    - `.math/problems/{slug}/JOURNAL.md` from `templates/JOURNAL.md` (set `problem` frontmatter field to slug)
+   - `.math/problems/{slug}/LITERATURE.md` from `templates/LITERATURE.md` (set `problem` frontmatter field to slug, update heading to use problem title)
 8. Update `.math/config.json`:
    - Set `current_problem` to slug
    - Add problem entry to `problems` array:
@@ -88,7 +89,8 @@ Wait for the user to choose before proceeding.
 6. Move `.math/NOTATION.md` to `.math/problems/{slug}/NOTATION.md`
 7. Move `.math/STATE.md` to `.math/problems/{slug}/STATE.md`
 8. Create `.math/problems/{slug}/JOURNAL.md` from `templates/JOURNAL.md` (set `problem` field to slug)
-9. Rewrite `.math/config.json` with Phase 2 schema:
+9. Create `.math/problems/{slug}/LITERATURE.md` from `templates/LITERATURE.md` (set `problem` field to slug)
+10. Rewrite `.math/config.json` with Phase 2 schema:
    - Set `version` to `"0.2.0"`
    - Set `current_problem` to slug
    - Create `problems` array with one entry (slug, title from PROBLEM.md, domain, notation_preset, created from original config, last_active now, state from STATE.md)
@@ -98,7 +100,7 @@ Wait for the user to choose before proceeding.
 
 1. Generate problem slug (same as Case A Step 5)
 2. Create `.math/problems/{slug}/` directory
-3. Copy templates into the problem directory (same as Case A Step 7)
+3. Copy templates into the problem directory (same as Case A Step 7, including LITERATURE.md)
 4. Update `.math/config.json`:
    - Set `current_problem` to the new slug
    - Add new problem entry to `problems` array
@@ -113,7 +115,7 @@ Math research project initialized in .math/
 
   Problem: {slug} ({domain})
   Location: .math/problems/{slug}/
-  Files: PROBLEM.md, NOTATION.md, STATE.md, JOURNAL.md
+  Files: PROBLEM.md, NOTATION.md, STATE.md, JOURNAL.md, LITERATURE.md
 
 Next: Submit a problem with /math:problem
 ```
@@ -144,4 +146,5 @@ If this was adding to an existing project (Case C), also show:
 - `@templates/NOTATION.md` -- Notation profile template
 - `@templates/STATE.md` -- Research state template
 - `@templates/JOURNAL.md` -- Research journal template
+- `@templates/LITERATURE.md` -- Literature search results template
 - `@templates/config.json` -- Configuration template (v0.2.0 multi-problem schema)
