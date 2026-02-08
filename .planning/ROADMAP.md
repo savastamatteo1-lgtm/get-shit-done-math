@@ -36,7 +36,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 - [x] 01-01-PLAN.md -- Plugin scaffold, confidence tier protocol, and document templates
-- [ ] 01-02-PLAN.md -- Notation domain presets and disabled "coming soon" commands
+- [x] 01-02-PLAN.md -- Notation domain presets and disabled "coming soon" commands
 - [ ] 01-03-PLAN.md -- Active slash commands and problem intake agent
 
 ### Phase 2: Session State & Research Journal
@@ -140,7 +140,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Plugin Setup | 1/3 | In progress | - |
+| 1. Foundation & Plugin Setup | 2/3 | In progress | - |
 | 2. Session State & Research Journal | 0/TBD | Not started | - |
 | 3. Literature Search Agent | 0/TBD | Not started | - |
 | 4. Proof Collaboration Agent | 0/TBD | Not started | - |
