@@ -47,11 +47,12 @@ Plans:
   1. User can close Claude Code, reopen it, and resume a research session with proof progress, literature found, and approaches tried fully restored
   2. System maintains an approach journal that records each attempted strategy, its outcome, and the reason it was abandoned or succeeded
   3. Approach journal prevents the user from unknowingly re-exploring dead ends by surfacing prior attempts on similar strategies
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
+- [ ] 02-01-PLAN.md -- Document schema foundation (config.json, DASHBOARD.md, JOURNAL.md templates, journal protocol)
+- [ ] 02-02-PLAN.md -- Multi-problem commands (/math:init update, Phase 1 path resolution, /math:switch, /math:archive)
+- [ ] 02-03-PLAN.md -- Session restoration (/math:resume command, session-management agent)
 
 ### Phase 3: Literature Search Agent
 **Goal**: User can search for relevant mathematical literature and receive verified, synthesized results that connect to their problem
@@ -141,7 +142,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Plugin Setup | 3/3 | Complete | 2026-02-08 |
-| 2. Session State & Research Journal | 0/TBD | Not started | - |
+| 2. Session State & Research Journal | 0/3 | Planned | - |
 | 3. Literature Search Agent | 0/TBD | Not started | - |
 | 4. Proof Collaboration Agent | 0/TBD | Not started | - |
 | 5. Computation Agent | 0/TBD | Not started | - |
