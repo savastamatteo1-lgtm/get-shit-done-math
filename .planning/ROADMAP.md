@@ -12,7 +12,7 @@ This roadmap delivers an AI-powered mathematical research assistant as a Claude 
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation & Plugin Setup** - Document architecture, problem intake, notation registry, and plugin installation
+- [x] **Phase 1: Foundation & Plugin Setup** - Document architecture, problem intake, notation registry, and plugin installation (completed 2026-02-08)
 - [ ] **Phase 2: Session State & Research Journal** - Persistent research sessions and approach tracking across time
 - [ ] **Phase 3: Literature Search Agent** - arXiv and Semantic Scholar search with verified references and synthesis
 - [ ] **Phase 4: Proof Collaboration Agent** - Proof strategy, structured reasoning, confidence tiers, and gap analysis
@@ -37,7 +37,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 Plans:
 - [x] 01-01-PLAN.md -- Plugin scaffold, confidence tier protocol, and document templates
 - [x] 01-02-PLAN.md -- Notation domain presets and disabled "coming soon" commands
-- [ ] 01-03-PLAN.md -- Active slash commands and problem intake agent
+- [x] 01-03-PLAN.md -- Active slash commands and problem intake agent
 
 ### Phase 2: Session State & Research Journal
 **Goal**: User can leave a research session and return days later with full context restored, including a record of what approaches were tried and why they succeeded or failed
@@ -140,7 +140,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Plugin Setup | 2/3 | In progress | - |
+| 1. Foundation & Plugin Setup | 3/3 | Complete | 2026-02-08 |
 | 2. Session State & Research Journal | 0/TBD | Not started | - |
 | 3. Literature Search Agent | 0/TBD | Not started | - |
 | 4. Proof Collaboration Agent | 0/TBD | Not started | - |
