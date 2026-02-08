@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-08)
 
 **Core value:** Help mathematicians move from problem statement to rigorous LaTeX writeup by coordinating specialized agents for each phase of the research workflow (search, prove, compute, write).
-**Current focus:** Phase 2 complete -- ready for Phase 3
+**Current focus:** Phase 3 in progress -- literature search agent
 
 ## Current Position
 
-Phase: 2 of 7 (Session State & Research Journal)
-Plan: 3 of 3 in current phase
-Status: Phase complete
-Last activity: 2026-02-08 -- Completed 02-03-PLAN.md (resume command and session manager)
+Phase: 3 of 7 (Literature Search Agent)
+Plan: 1 of 3 in current phase
+Status: In progress
+Last activity: 2026-02-08 -- Completed 03-01-PLAN.md (literature protocol and template)
 
-Progress: [██████░░░░] ~29%
+Progress: [███████░░░] ~33%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 6
+- Total plans completed: 7
 - Average duration: 3.0min
-- Total execution time: 0.30 hours
+- Total execution time: 0.35 hours
 
 **By Phase:**
 
@@ -29,9 +29,10 @@ Progress: [██████░░░░] ~29%
 |-------|-------|-------|----------|
 | 1. Foundation | 3/3 | 10min | 3.3min |
 | 2. Session State | 3/3 | 9min | 3.0min |
+| 3. Literature Search | 1/3 | 3min | 3.0min |
 
 **Recent Trend:**
-- Last 5 plans: 01-03 (3min), 02-01 (2min), 02-02 (4min), 02-03 (3min)
+- Last 5 plans: 02-01 (2min), 02-02 (4min), 02-03 (3min), 03-01 (3min)
 - Trend: Consistent ~3min average
 
 *Updated after each plan completion*
@@ -65,6 +66,9 @@ Recent decisions affecting current work:
 - [02-03]: Suggested next action uses ordered 7-condition decision tree, first match wins
 - [02-03]: Session-manager agent has 3 functions: write entry, dead-end detection, quick note
 - [02-03]: Dead-end detection matches FAILED/ABANDONED only (not succeeded, partial, in-progress)
+- [03-01]: Separate REF-NNN (confirmed) and UREF-NNN (unconfirmed) numbering prevents confusion between verified and unverified references
+- [03-01]: Batch verification via arXiv id_list parameter minimizes API calls during Phase B
+- [03-01]: Semantic Scholar API key is optional (env var or config.json) -- unauthenticated access works but with lower rate limits
 
 ### Pending Todos
 
@@ -72,12 +76,12 @@ None yet.
 
 ### Blockers/Concerns
 
-- [Research]: arXiv and Semantic Scholar API endpoints need verification against current state (training data from mid-2025) -- address during Phase 3 planning
+- [Research]: arXiv and Semantic Scholar API endpoints need verification against current state (training data from mid-2025) -- codified in protocol, will be validated during 03-02 agent execution
 - [Research]: Python sandboxing approach for computation agent is safety-critical -- address during Phase 5 planning
 - [02-01]: config.json schema change means Phase 1 commands need path resolution updates (RESOLVED in 02-02)
 
 ## Session Continuity
 
 Last session: 2026-02-08
-Stopped at: Phase 2 complete, ready for Phase 3
-Resume file: .planning/ROADMAP.md (Phase 3 planning)
+Stopped at: Phase 3, Plan 1 complete (literature protocol and template)
+Resume file: .planning/phases/03-literature-search-agent/03-02-PLAN.md
