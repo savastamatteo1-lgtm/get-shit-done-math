@@ -10,29 +10,29 @@ See: .planning/PROJECT.md (updated 2026-02-08)
 ## Current Position
 
 Phase: 2 of 7 (Session State & Research Journal)
-Plan: 1 of 3 in current phase
+Plan: 2 of 3 in current phase
 Status: In progress
-Last activity: 2026-02-08 -- Completed 02-01-PLAN.md (document schema foundation)
+Last activity: 2026-02-08 -- Completed 02-02-PLAN.md (multi-problem commands)
 
-Progress: [████░░░░░░] ~19%
+Progress: [█████░░░░░] ~24%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
+- Total plans completed: 5
 - Average duration: 3.0min
-- Total execution time: 0.20 hours
+- Total execution time: 0.27 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1. Foundation | 3/3 | 10min | 3.3min |
-| 2. Session State | 1/3 | 2min | 2.0min |
+| 2. Session State | 2/3 | 6min | 3.0min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (3min), 01-02 (4min), 01-03 (3min), 02-01 (2min)
-- Trend: Consistent, slightly accelerating
+- Last 5 plans: 01-02 (4min), 01-03 (3min), 02-01 (2min), 02-02 (4min)
+- Trend: Consistent ~3min average
 
 *Updated after each plan completion*
 
@@ -57,6 +57,10 @@ Recent decisions affecting current work:
 - [02-01]: Journal protocol uses 14-type strategy taxonomy for dead-end detection matching
 - [02-01]: Dead-end detection uses strategy type as primary match, tags (2+ shared) as secondary
 - [02-01]: Insight/Takeaway always required on every journal entry, including successes
+- [02-02]: Init handles 3 cases: fresh project, Phase 1 migration, add problem to existing Phase 2 project
+- [02-02]: All commands use path resolution pattern through config.json current_problem pointer
+- [02-02]: Archive preserves all files in .math/archive/{slug}/ with final journal entry
+- [02-02]: Switch includes auto-resume summary after switching to reduce context-switching friction
 
 ### Pending Todos
 
@@ -66,10 +70,10 @@ None yet.
 
 - [Research]: arXiv and Semantic Scholar API endpoints need verification against current state (training data from mid-2025) -- address during Phase 3 planning
 - [Research]: Python sandboxing approach for computation agent is safety-critical -- address during Phase 5 planning
-- [02-01]: config.json schema change means Phase 1 commands need path resolution updates (addressed in 02-02)
+- [02-01]: config.json schema change means Phase 1 commands need path resolution updates (RESOLVED in 02-02)
 
 ## Session Continuity
 
 Last session: 2026-02-08
-Stopped at: Phase 2 plan 01 complete, ready for plan 02
-Resume file: .planning/phases/02-session-state-research-journal/02-02-PLAN.md
+Stopped at: Phase 2 plan 02 complete, ready for plan 03
+Resume file: .planning/phases/02-session-state-research-journal/02-03-PLAN.md
