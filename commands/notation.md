@@ -11,21 +11,31 @@ allowed-tools:
 
 View, switch, or customize the notation conventions used across your math research project.
 
+## Path Resolution
+
+1. Read `.math/config.json`
+2. Get `current_problem` slug
+3. Resolve notation file as `.math/problems/{current_problem}/NOTATION.md`
+
 ## Process
 
-### Step 1: Validate project exists
+### Step 1: Validate project and resolve current problem
 
 Check if `.math/` directory exists.
 
 - **If `.math/` does not exist:** Tell the user: "No math project found. Run `/math:init` first to set up your project." Stop here.
-- **If `.math/` exists:** Proceed to Step 2.
+- **If `.math/` exists:** Read `.math/config.json` and extract `current_problem`.
+
+If `current_problem` is empty or missing: Check if `.math/NOTATION.md` exists at root (Phase 1 legacy layout). If yes, inform user: "Detected legacy layout. Run `/math:init` to upgrade to multi-problem format." Stop here. If no legacy files, tell user: "No active problem. Run `/math:init` or `/math:switch` to set one." Stop here.
+
+If `current_problem` is set: Resolve the notation file as `.math/problems/{current_problem}/NOTATION.md`. Proceed to Step 2.
 
 ### Step 2: Display current profile summary
 
-Read `.math/NOTATION.md` and show a summary:
+Read `.math/problems/{current_problem}/NOTATION.md` and show a summary:
 
 ```
-Notation Profile
+Notation Profile ({current_problem})
 ================
 Domain: {domain from frontmatter}
 Preset: {based_on_preset} {if modified: "(customized)"}
@@ -52,7 +62,7 @@ Wait for the user to choose.
 ### Step 4: Execute chosen action
 
 **Option a: View full profile**
-- Read and display the entire `.math/NOTATION.md` content.
+- Read and display the entire `.math/problems/{current_problem}/NOTATION.md` content.
 
 **Option b: Switch domain preset**
 - Show the preset list: algebra, analysis, topology, number-theory, combinatorics, algebraic-geometry, differential-geometry, probability, logic
@@ -60,38 +70,39 @@ Wait for the user to choose.
 - Ask: "Keep your custom modifications or start fresh from the preset? (keep/fresh)"
   - **keep:** Merge preset symbols into existing table (add new rows, don't remove custom ones). Update domain and based_on_preset in frontmatter.
   - **fresh:** Replace entire notation content with preset. Reset modified to false.
-- Write updated `.math/NOTATION.md`
+- Write updated `.math/problems/{current_problem}/NOTATION.md`
 
 **Option c: Add/edit symbol convention**
 - Ask: "What concept? (e.g., 'Inner product')"
 - Ask: "What notation? (e.g., \langle x, y \rangle)"
 - Ask: "LaTeX command? (e.g., `\langle x, y \rangle`)"
 - Ask: "Notes? (optional, press enter to skip)"
-- Add or update the row in the Symbol Conventions table in `.math/NOTATION.md`
+- Add or update the row in the Symbol Conventions table in `.math/problems/{current_problem}/NOTATION.md`
 
 **Option d: Add/remove LaTeX package**
 - Show current packages (base + additional)
 - Ask: "Add or remove a package? (add/remove)"
   - **add:** Ask for package name and purpose. Add to Additional packages section.
   - **remove:** Show removable packages (cannot remove base: amsmath, amssymb, amsthm). Ask which to remove.
-- Write updated `.math/NOTATION.md`
+- Write updated `.math/problems/{current_problem}/NOTATION.md`
 
 **Option e: Edit presentation style**
 - Show current settings for: theorem numbering, proof structure, equation numbering, bibliography style
 - Ask which to change
 - Collect new preference
-- Write updated `.math/NOTATION.md`
+- Write updated `.math/problems/{current_problem}/NOTATION.md`
 
 ### Step 5: Update metadata
 
 After any change (options b through e):
 - Set `modified: true` in frontmatter
 - Set `last_modified: {ISO timestamp}` in frontmatter
-- Write the updated `.math/NOTATION.md`
+- Write the updated `.math/problems/{current_problem}/NOTATION.md`
 
-Confirm: "Notation profile updated."
+Confirm: "Notation profile updated for '{current_problem}'."
 
 ## References
 
 - `@presets/*.md` -- Domain notation presets for switching
-- `.math/NOTATION.md` -- Current project notation profile
+- `.math/config.json` -- Project configuration with current_problem pointer
+- `.math/problems/{current_problem}/NOTATION.md` -- Current problem's notation profile
