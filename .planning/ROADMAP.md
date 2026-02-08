@@ -32,12 +32,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Problem statement is stored in LaTeX format and parsed into structured data that downstream agents can consume
   4. User can define a notation profile (e.g., additive vs multiplicative groups, preferred LaTeX packages) and it is automatically loaded into every agent context
   5. Confidence tier system (VERIFIED/SUGGESTED/SPECULATIVE) is defined as a shared protocol available to all agents
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
-- [ ] 01-03: TBD
+- [ ] 01-01-PLAN.md -- Plugin scaffold, confidence tier protocol, and document templates
+- [ ] 01-02-PLAN.md -- Notation domain presets and disabled "coming soon" commands
+- [ ] 01-03-PLAN.md -- Active slash commands and problem intake agent
 
 ### Phase 2: Session State & Research Journal
 **Goal**: User can leave a research session and return days later with full context restored, including a record of what approaches were tried and why they succeeded or failed
@@ -140,7 +140,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Plugin Setup | 0/TBD | Not started | - |
+| 1. Foundation & Plugin Setup | 0/3 | Planned | - |
 | 2. Session State & Research Journal | 0/TBD | Not started | - |
 | 3. Literature Search Agent | 0/TBD | Not started | - |
 | 4. Proof Collaboration Agent | 0/TBD | Not started | - |
