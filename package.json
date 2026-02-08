@@ -24,15 +24,15 @@
     "claude-code",
     "ai"
   ],
-  "author": "TÂCHES",
+  "author": "Matteo",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/glittercowboy/get-shit-done-math.git"
+    "url": "git+https://github.com/savastamatteo1-lgtm/get-shit-done-math.git"
   },
-  "homepage": "https://github.com/glittercowboy/get-shit-done-math",
+  "homepage": "https://github.com/savastamatteo1-lgtm/get-shit-done-math",
   "bugs": {
-    "url": "https://github.com/glittercowboy/get-shit-done-math/issues"
+    "url": "https://github.com/savastamatteo1-lgtm/get-shit-done-math/issues"
   },
   "engines": {
     "node": ">=16.7.0"
