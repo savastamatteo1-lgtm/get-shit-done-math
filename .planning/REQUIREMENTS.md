@@ -53,7 +53,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Orchestration
 
-- [ ] **ORCH-01**: Full pipeline connects search → prove → compute → write as coordinated agent flow
+- [ ] **ORCH-01**: Full pipeline connects search -> prove -> compute -> write as coordinated agent flow
 - [ ] **ORCH-02**: Pipeline supports backward loops (proof agent can request additional literature or computation)
 - [ ] **ORCH-03**: System installs as Claude Code plugin via npx
 - [ ] **ORCH-04**: Commands are available as /slash commands in Claude Code
@@ -64,7 +64,7 @@ Deferred to future release. Tracked but not in current roadmap.
 
 ### Enhanced Proof
 
-- **PRUF-09**: Computation-proof bridge (computation reveals pattern → suggest proof technique)
+- **PRUF-09**: Computation-proof bridge (computation reveals pattern -> suggest proof technique)
 - **PRUF-10**: Formal verification integration (Lean 4) as opt-in module
 
 ### Enhanced Literature
@@ -104,45 +104,45 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INTK-01 | — | Pending |
-| INTK-02 | — | Pending |
-| INTK-03 | — | Pending |
-| INTK-04 | — | Pending |
-| INTK-05 | — | Pending |
-| INTK-06 | — | Pending |
-| LIT-01 | — | Pending |
-| LIT-02 | — | Pending |
-| LIT-03 | — | Pending |
-| LIT-04 | — | Pending |
-| LIT-05 | — | Pending |
-| LIT-06 | — | Pending |
-| PRUF-01 | — | Pending |
-| PRUF-02 | — | Pending |
-| PRUF-03 | — | Pending |
-| PRUF-04 | — | Pending |
-| PRUF-05 | — | Pending |
-| PRUF-06 | — | Pending |
-| PRUF-07 | — | Pending |
-| PRUF-08 | — | Pending |
-| COMP-01 | — | Pending |
-| COMP-02 | — | Pending |
-| COMP-03 | — | Pending |
-| COMP-04 | — | Pending |
-| COMP-05 | — | Pending |
-| OUTP-01 | — | Pending |
-| OUTP-02 | — | Pending |
-| OUTP-03 | — | Pending |
-| OUTP-04 | — | Pending |
-| ORCH-01 | — | Pending |
-| ORCH-02 | — | Pending |
-| ORCH-03 | — | Pending |
-| ORCH-04 | — | Pending |
+| INTK-01 | Phase 1: Foundation & Plugin Setup | Pending |
+| INTK-02 | Phase 1: Foundation & Plugin Setup | Pending |
+| INTK-03 | Phase 2: Session State & Research Journal | Pending |
+| INTK-04 | Phase 2: Session State & Research Journal | Pending |
+| INTK-05 | Phase 1: Foundation & Plugin Setup | Pending |
+| INTK-06 | Phase 1: Foundation & Plugin Setup | Pending |
+| LIT-01 | Phase 3: Literature Search Agent | Pending |
+| LIT-02 | Phase 3: Literature Search Agent | Pending |
+| LIT-03 | Phase 3: Literature Search Agent | Pending |
+| LIT-04 | Phase 3: Literature Search Agent | Pending |
+| LIT-05 | Phase 3: Literature Search Agent | Pending |
+| LIT-06 | Phase 3: Literature Search Agent | Pending |
+| PRUF-01 | Phase 4: Proof Collaboration Agent | Pending |
+| PRUF-02 | Phase 4: Proof Collaboration Agent | Pending |
+| PRUF-03 | Phase 4: Proof Collaboration Agent | Pending |
+| PRUF-04 | Phase 4: Proof Collaboration Agent | Pending |
+| PRUF-05 | Phase 4: Proof Collaboration Agent | Pending |
+| PRUF-06 | Phase 4: Proof Collaboration Agent | Pending |
+| PRUF-07 | Phase 6: Math Orchestrator | Pending |
+| PRUF-08 | Phase 4: Proof Collaboration Agent | Pending |
+| COMP-01 | Phase 5: Computation Agent | Pending |
+| COMP-02 | Phase 5: Computation Agent | Pending |
+| COMP-03 | Phase 5: Computation Agent | Pending |
+| COMP-04 | Phase 5: Computation Agent | Pending |
+| COMP-05 | Phase 5: Computation Agent | Pending |
+| OUTP-01 | Phase 7: LaTeX Output Agent | Pending |
+| OUTP-02 | Phase 7: LaTeX Output Agent | Pending |
+| OUTP-03 | Phase 7: LaTeX Output Agent | Pending |
+| OUTP-04 | Phase 7: LaTeX Output Agent | Pending |
+| ORCH-01 | Phase 6: Math Orchestrator | Pending |
+| ORCH-02 | Phase 6: Math Orchestrator | Pending |
+| ORCH-03 | Phase 1: Foundation & Plugin Setup | Pending |
+| ORCH-04 | Phase 1: Foundation & Plugin Setup | Pending |
 
 **Coverage:**
 - v1 requirements: 33 total
-- Mapped to phases: 0
-- Unmapped: 33
+- Mapped to phases: 33
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-08*
-*Last updated: 2026-02-08 after initial definition*
+*Last updated: 2026-02-08 after roadmap creation*
