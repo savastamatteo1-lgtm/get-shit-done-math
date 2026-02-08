@@ -63,12 +63,12 @@ Plans:
   2. Every citation in the results has been verified against the source API -- no hallucinated references exist in confirmed results
   3. System synthesizes connections between found papers and the user's problem (e.g., "Theorem A from [Smith] combined with Lemma 3 from [Jones] addresses your hypothesis")
   4. Literature results persist in session state (LITERATURE.md) and are available to proof and writing stages without re-searching
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
-- [ ] 03-03: TBD
+- [ ] 03-01-PLAN.md -- Literature protocol and LITERATURE.md template
+- [ ] 03-02-PLAN.md -- Literature search agent and /math:search command
+- [ ] 03-03-PLAN.md -- Integration updates (help, status, init)
 
 ### Phase 4: Proof Collaboration Agent
 **Goal**: User can collaborate with the system on developing mathematical proofs, receiving structured reasoning with explicit confidence levels and gap identification
